@@ -4,7 +4,7 @@
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "css",
-  "printWidth": 210,
+  "printWidth": 110,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "semi": true,

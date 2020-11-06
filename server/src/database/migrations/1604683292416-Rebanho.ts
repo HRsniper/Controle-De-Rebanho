@@ -14,6 +14,18 @@ export class Rebanho1604683292416 implements MigrationInterface {
             isGenerated: true,
             generationStrategy: "increment",
           },
+          { name: "create_at", type: "timestamp", default: `${Date.now()}` },
+          { name: "bezerros", type: "number", unsigned: true, default: 0 },
+          { name: "bezerras", type: "number", unsigned: true, default: 0 },
+          { name: "desmamados", type: "number", unsigned: true, default: 0 },
+          { name: "desmamadas", type: "number", unsigned: true, default: 0 },
+          { name: "garrotes", type: "number", unsigned: true, default: 0 },
+          { name: "garrotas", type: "number", unsigned: true, default: 0 },
+          { name: "novilhos", type: "number", unsigned: true, default: 0 },
+          { name: "novilhas", type: "number", unsigned: true, default: 0 },
+          { name: "touros", type: "number", unsigned: true, default: 0 },
+          { name: "vacas", type: "number", unsigned: true, default: 0 },
+          { name: "bois", type: "number", unsigned: true, default: 0 },
         ],
       })
     );
