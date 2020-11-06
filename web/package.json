@@ -1,0 +1,10 @@
+{
+  "name": "controle-de-rebanho",
+  "version": "1.0.0",
+  "description": "controle cadastral de rebanho",
+  "main": "src/index.tsx",
+  "repository": "https://github.com/HRsniper",
+  "author": "Hércules HRsniper <63937242+HRsniper@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true
+}

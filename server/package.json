@@ -1,0 +1,23 @@
+{
+  "name": "controle-de-rebanho",
+  "version": "1.0.0",
+  "description": "controle cadastral de rebanho",
+  "main": "src/server.ts",
+  "repository": "https://github.com/HRsniper",
+  "author": "Hércules HRsniper <63937242+HRsniper@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "class-validator": "^0.12.2",
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.0",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "prettier": "^2.1.2",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}
