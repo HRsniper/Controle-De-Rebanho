@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { IsBoolean, IsEmail, IsString, Length } from "class-validator";
+import { Rebanho } from "./Rebanho";
 
 @Entity("Users")
 @Unique(["email"])
@@ -24,4 +25,8 @@ export class Users {
   // @IsString()
   // @Length(4, 5)
   admin: boolean;
+
+  @OneToMany(() => Rebanho, (rebanho) => rebanho.rebanho, { cascade: ["insert", "update"] })
+  @JoinColumn({ name: "user_id" })
+  user: Rebanho[];
 }

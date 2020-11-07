@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { IsDateString, IsNumber, Length, Min } from "class-validator";
+import { Users } from "./Users";
 
 @Entity("Rebanho")
 export class Rebanho {
@@ -54,4 +55,8 @@ export class Rebanho {
   @Column()
   @IsNumber()
   bois: number;
+
+  @ManyToOne(() => Users, (user) => user.user)
+  @JoinColumn({ name: "user_id" })
+  rebanho: Users;
 }

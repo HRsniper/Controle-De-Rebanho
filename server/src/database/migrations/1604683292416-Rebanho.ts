@@ -31,6 +31,17 @@ export class Rebanho1604683292416 implements MigrationInterface {
           { name: "touros", type: "number", unsigned: true, default: 0 },
           { name: "vacas", type: "number", unsigned: true, default: 0 },
           { name: "bois", type: "number", unsigned: true, default: 0 },
+          { name: "user_id", type: "integer" },
+        ],
+        foreignKeys: [
+          {
+            name: "rebanho_user",
+            columnNames: ["user_id"],
+            referencedTableName: "Users",
+            referencedColumnNames: ["id"],
+            onUpdate: "CASCADE",
+            onDelete: "CASCADE",
+          },
         ],
       }),
       true
