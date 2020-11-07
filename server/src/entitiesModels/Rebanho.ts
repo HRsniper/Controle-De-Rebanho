@@ -6,8 +6,8 @@ export class Rebanho {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  // @Column()
-  // @IsDateString()
+  @Column()
+  @IsDateString()
   create_at: string;
 
   @Column()

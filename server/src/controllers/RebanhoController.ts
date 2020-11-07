@@ -7,6 +7,10 @@ import { RebanhoViews } from "../modelsViews/RebanhoViews";
 
 class RebanhoController {
   async create(request: Request, response: Response) {
+    const dataJson = new Date();
+    const dataNow = dataJson.toJSON();
+    const create_at = dataNow;
+
     const {
       bezerros,
       bezerras,
@@ -24,6 +28,7 @@ class RebanhoController {
     const repository = getRepository(Rebanho);
 
     const validation = repository.create({
+      create_at,
       bezerros,
       bezerras,
       desmamados,
@@ -41,6 +46,7 @@ class RebanhoController {
 
     if (errors.length === 0) {
       const data = {
+        create_at,
         bezerros,
         bezerras,
         desmamados,

@@ -2,10 +2,6 @@ import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class Rebanho1604683292416 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    const dataJson = new Date();
-    const dataNow = dataJson.toJSON();
-    console.log(dataNow);
-
     await queryRunner.createTable(
       new Table({
         name: "Rebanho",
@@ -18,7 +14,12 @@ export class Rebanho1604683292416 implements MigrationInterface {
             isGenerated: true,
             generationStrategy: "increment",
           },
-          { name: "create_at", type: "varchar(24)", default: `${dataNow}` },
+          {
+            name: "create_at",
+            type: "string",
+            length: "24",
+            default: "strftime('%Y-%m-%dT%H:%M:%fZ', 'now')",
+          },
           { name: "bezerros", type: "number", unsigned: true, default: 0 },
           { name: "bezerras", type: "number", unsigned: true, default: 0 },
           { name: "desmamados", type: "number", unsigned: true, default: 0 },
@@ -31,7 +32,8 @@ export class Rebanho1604683292416 implements MigrationInterface {
           { name: "vacas", type: "number", unsigned: true, default: 0 },
           { name: "bois", type: "number", unsigned: true, default: 0 },
         ],
-      })
+      }),
+      true
     );
   }
 
