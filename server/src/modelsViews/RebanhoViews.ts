@@ -15,6 +15,7 @@ export const RebanhoViews = {
       touros: rebanho.touros,
       vacas: rebanho.vacas,
       bois: rebanho.bois,
+      // create_at: rebanho.create_at,
     };
   },
   renderMany(rebanhos: Rebanho[]) {

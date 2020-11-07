@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { IsDate, IsNumber } from "class-validator";
+import { IsDate, IsDateString, IsNumber, IsString } from "class-validator";
 
 @Entity("Rebanho")
 export class Rebanho {
@@ -7,8 +7,8 @@ export class Rebanho {
   id: number;
 
   // @Column()
-  // @IsDate()
-  create_at: Date;
+  // @IsDateString()
+  create_at: string;
 
   @Column()
   @IsNumber()

@@ -3,6 +3,7 @@ import { getRepository } from "typeorm";
 import { validate } from "class-validator";
 
 import { Rebanho } from "../entitiesModels/Rebanho";
+import { RebanhoViews } from "../modelsViews/RebanhoViews";
 
 class RebanhoController {
   async create(request: Request, response: Response) {
@@ -57,10 +58,18 @@ class RebanhoController {
 
       await repository.save(rebanho);
 
-      return response.status(201).json(rebanho);
+      return response.status(201).json(RebanhoViews.render(rebanho));
     }
 
     return response.status(400).json(errors);
+  }
+
+  async all(request: Request, response: Response) {
+    const repository = getRepository(Rebanho);
+
+    const rebanho = await repository.find();
+
+    return response.status(200).json(RebanhoViews.renderMany(rebanho));
   }
 }
 
