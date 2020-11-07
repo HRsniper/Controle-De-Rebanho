@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { IsDate, IsDateString, IsNumber, IsString } from "class-validator";
+import { IsDateString, IsNumber, Length, Min } from "class-validator";
 
 @Entity("Rebanho")
 export class Rebanho {
@@ -8,6 +8,7 @@ export class Rebanho {
 
   @Column()
   @IsDateString()
+  @Length(24, 24)
   create_at: string;
 
   @Column()

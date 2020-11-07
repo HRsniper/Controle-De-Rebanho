@@ -1,7 +1,7 @@
 import { Rebanho } from "../entitiesModels/Rebanho";
 
 export const RebanhoViews = {
-  render(rebanho: Rebanho) {
+  render(rebanho: Rebanho): Rebanho {
     return {
       id: rebanho.id,
       bezerros: rebanho.bezerros,
@@ -18,7 +18,7 @@ export const RebanhoViews = {
       create_at: rebanho.create_at,
     };
   },
-  renderMany(rebanhos: Rebanho[]) {
+  renderMany(rebanhos: Rebanho[]): Rebanho[] {
     return rebanhos.map((rebanho) => this.render(rebanho));
   },
 };
