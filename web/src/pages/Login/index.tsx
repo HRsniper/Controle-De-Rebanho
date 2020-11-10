@@ -1,30 +1,37 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
 
+import imgRebanho from "../../assets/images/rebanho.jpg";
 import { Container } from "./styles";
 
 export const Login = (): JSX.Element => {
+  // const [administracao, setAdministracao] = useState(false);
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    // console.log(administracao);
+  }
+
   return (
     <Container>
       <header>
-        {/* <img src="" alt="" /> */}
-        <p>+</p>
+        <img src={imgRebanho} alt="🐂" />
       </header>
 
       <main>
-        <form action="" method="GET">
+        <form onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Login</legend>
+            <legend>acesso ao produtor</legend>
 
-            <label htmlFor="access">acesso</label>
-            <select name="access" id="access">
+            {/* <label htmlFor="access">acesso</label>
+            <select name="access" id="access" onChange={(e) => setAdministracao(Boolean(e.target.value))}>
               <optgroup label="produtor">
-                <option value="prod">produtor</option>
+                <option value="false">produtor</option>
               </optgroup>
 
               <optgroup label="administracao">
-                <option value="adm">administracao</option>
+                <option value="true">administracao</option>
               </optgroup>
-            </select>
+            </select> */}
 
             <label htmlFor="email">email</label>
             <input type="text" id="email" />
