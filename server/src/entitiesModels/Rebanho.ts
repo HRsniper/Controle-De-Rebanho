@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { IsDateString, IsNumber, Length, Min } from "class-validator";
+import { IsDateString, IsEmail, IsNumber, Length } from "class-validator";
 import { Users } from "./Users";
 
 @Entity("Rebanho")
@@ -56,7 +56,12 @@ export class Rebanho {
   @IsNumber()
   bois: number;
 
-  @ManyToOne(() => Users, (user) => user.user)
+  @Column()
+  // @IsNumber()
+  @ManyToOne(() => Users, (user) => user.rebanho)
   @JoinColumn({ name: "user_id" })
-  rebanho: Users;
+  user_id: number;
+
+  // @IsEmail()
+  // email: string;
 }

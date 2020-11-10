@@ -16,6 +16,7 @@ export const RebanhoViews = {
       vacas: rebanho.vacas,
       bois: rebanho.bois,
       create_at: rebanho.create_at,
+      user_id: rebanho.user_id,
     };
   },
   renderMany(rebanhos: Rebanho[]): Rebanho[] {

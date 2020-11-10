@@ -5,6 +5,8 @@ import { validate } from "class-validator";
 import { Rebanho } from "../entitiesModels/Rebanho";
 import { RebanhoViews } from "../modelsViews/RebanhoViews";
 
+import { Users } from "../entitiesModels/Users";
+
 class RebanhoController {
   async create(request: Request, response: Response) {
     const dataJson = new Date();
@@ -12,6 +14,7 @@ class RebanhoController {
     const create_at = dataNow;
 
     const {
+      email,
       bezerros,
       bezerras,
       desmamados,
@@ -26,6 +29,7 @@ class RebanhoController {
     } = request.body;
 
     const repository = getRepository(Rebanho);
+    const userRepository = getRepository(Users);
 
     const validation = repository.create({
       create_at,
@@ -45,6 +49,10 @@ class RebanhoController {
     const errors = await validate(validation);
 
     if (errors.length === 0) {
+      const findUser_id = await userRepository.findOne({ where: { email } });
+      // console.log(findUser_id?.id);
+      const user_id = findUser_id?.id;
+
       const data = {
         create_at,
         bezerros,
@@ -58,6 +66,7 @@ class RebanhoController {
         touros,
         vacas,
         bois,
+        user_id,
       };
 
       const rebanho = repository.create(data);

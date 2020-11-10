@@ -26,7 +26,7 @@ export class Users {
   // @Length(4, 5)
   admin: boolean;
 
-  @OneToMany(() => Rebanho, (rebanho) => rebanho.rebanho, { cascade: ["insert", "update"] })
+  @OneToMany(() => Rebanho, (rebanho) => rebanho.user_id, { cascade: ["insert", "update"] })
   @JoinColumn({ name: "user_id" })
-  user: Rebanho[];
+  rebanho: Rebanho[];
 }
